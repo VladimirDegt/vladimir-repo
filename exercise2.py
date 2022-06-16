@@ -4,10 +4,12 @@
 #58.60125 -> 58.6
 #34.0 -> 34
 
-while True:
-    number = float(input ("Введите число или 0 для выхода: "))
-    if number == 0:
-        print("Ввод окончен")
-        break
-    number = int(number * 100) / 100
-    print("{:d}".format(number))
+def f_float ():
+    while True:
+        number = float(input ("Введите число или 0 для выхода: "))
+        if number == 0:
+            print("Ввод окончен")
+            break
+        number = int(number * 100) / 100
+        print("{:n}".format(number))
+f_float()
