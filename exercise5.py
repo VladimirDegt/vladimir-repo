@@ -5,13 +5,11 @@
 
 
 names = "Денис, Олег, Вася, Петя,Дима,Женя"
-lst = names.split()
-part1 = lst[0:3]
-part2 = str(lst[3:])
-lst2 = part2.split(",")
-part1.extend(lst2)
 
-print(part1)
+lst = names.split(", ")
+lst2 = lst[3]
+lst3 = lst2.split(",")
 
+print(lst[:3] + lst3)
 
 
