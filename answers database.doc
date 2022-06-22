@@ -1,0 +1,38 @@
+В созданной БД в задании 4:
+1. добавьте в таблицу users колонку phone_number (int)
+2. поменяйте тип данных в таблице users колонка phone_number с int на varchar
+
+1. ALTER TABLE users ADD COLUMN phone_number INTEGER;
+2.  ALTER TABLE users ALTER COLUMN phone_number TYPE character varying(255);
+
+В созданной БД в задании 4:  в таблице products увеличьте цену в 2 раза
+UPDATE products SET price = price*2 WHERE price = price;
+
+Вывести:
+1. всех юзеров,
+2. все продукты,
+3. все статусы заказов
+SELECT * FROM users;
+SELECT * FROM products;
+SELECT * FROM order_status;
+
+Вывести заказы, которые успешно доставлены и оплачены
+SELECT * FROM "order" WHERE order_status_order_status_id IN ('3', '4');
+
+Вывести: (если задание можно решить несколькими способами, указывай все)
+1. продукты, цена которых больше 80.00 и меньше или равно 150.00
+2. заказы совершенные после 01.10.2020 (поле created_at)
+3. заказы полученные за первое полугодие 2020 года
+4. подукты следующих категорий Category 7, Category 11, Category 18
+5. незавершенные заказы по состоянию на 31.12.2020
+6. вывести все корзины, которые были созданы, но заказ так и не был оформлен.
+1.SELECT * FROM products WHERE price > 80 AND price <=150;
+2.SELECT * FROM "order" WHERE created_at > '01-10-2020';
+3.SELECT * FROM "order" WHERE created_at BETWEEN '01-01-2020' AND '30-06-2020' ORDER BY created_at;
+4.SELECT * FROM products WHERE category_id IN ('7','11','18') ORDER BY category_id;
+5.SELECT * FROM "order" WHERE order_status_order_status_id = '2' AND updated_at BETWEEN '01-01-2000' AND '31.12.2020' ORDER BY updated_at;
+6.SELECT * FROM "order" WHERE order_status_order_status_id NOT IN ('4', '5') ORDER BY order_status_order_status_id DESC;
+
+Вывести:
+1. среднюю сумму всех завершенных сделок
+2. вывести максимальную сумму сделки за 3 квартал 2020
